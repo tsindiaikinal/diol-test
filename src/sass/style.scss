@@ -1,0 +1,99 @@
+// COLORS
+// FONTS
+$ffdef: Arial, Helvetica, sans-serif;
+$ff1: "Open Sans";
+$ff2: "Jazz Ball";
+//SIZES
+
+@font-face {
+  font-family: "home";
+  src: url("../fonts/home.eot?92097462");
+  src: url("../fonts/home.eot?92097462#iefix") format("embedded-opentype"),
+    url("../fonts/home.woff2?92097462") format("woff2"),
+    url("../fonts/home.woff?92097462") format("woff"),
+    url("../fonts/home.ttf?92097462") format("truetype"),
+    url("../fonts/home.svg?92097462#home") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Jazz Ball";
+  src: url("../fonts/JazzBall.eot");
+  src: url("../fonts/JazzBall.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/JazzBall.woff2") format("woff2"),
+    url("JazzBall.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Bold.eot');
+    src: url('OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('OpenSans-Bold.woff2') format('woff2'),
+        url('OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-SemiBold.eot');
+    src: url('OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('OpenSans-SemiBold.woff2') format('woff2'),
+        url('OpenSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Regular.eot');
+    src: url('OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('OpenSans-Regular.woff2') format('woff2'),
+        url('OpenSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+    font-family: $ff1;
+}
+.container {
+  width: 960px;
+  margin: auto;
+}
+header,
+main,
+footer {
+  margin: auto;
+}
+.filters {
+    width: 100%;
+    border: 1px solid lightgray;
+    background-color: #eef8ff;
+}
+.goods {
+    width: 100%;
+    &__container {
+        width: (960 / 5) * 100%;
+    }
+    &__title {
+        font-size: (14 / 16) + rem;
+        color: #0093ca;
+        text-align: center;
+    }
+    &__description {
+        
+    }
+  #add {
+    font-family: $ff2;
+    font-size: 1rem;
+  }
+  #subtract {
+    font-family: $ff2;
+    font-size: 1rem;
+  }
+}
