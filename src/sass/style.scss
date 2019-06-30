@@ -1,4 +1,22 @@
+@mixin radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}
 // COLORS
+$white: #ffffff;
+$black: #000000;
+$grey: #939ca2;
+$lgrey: #d1dce7;
+$sky: #eef8ff;
+$red: #e30013;
+$lblack: #3b3b3b;
+$yellow: #e3c400;
+$green: #76e300;
+$pink: #e300a0;
+$orange: #e37000;
 // FONTS
 $ffdef: Arial, Helvetica, sans-serif;
 $ff1: "Open Sans";
@@ -26,74 +44,293 @@ $ff2: "Jazz Ball";
   font-style: normal;
 }
 @font-face {
-    font-family: 'Open Sans';
-    src: url('OpenSans-Bold.eot');
-    src: url('OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
-        url('OpenSans-Bold.woff2') format('woff2'),
-        url('OpenSans-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Bold.eot");
+  src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Bold.woff2") format("woff2"),
+    url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('OpenSans-SemiBold.eot');
-    src: url('OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
-        url('OpenSans-SemiBold.woff2') format('woff2'),
-        url('OpenSans-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-SemiBold.eot");
+  src: url("..fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("..fonts/OpenSans-SemiBold.woff2") format("woff2"),
+    url("..fonts/OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('OpenSans-Regular.eot');
-    src: url('OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url('OpenSans-Regular.woff2') format('woff2'),
-        url('OpenSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.eot");
+  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 * {
   margin: 0;
   padding: 0;
 }
 body {
-    font-family: $ff1;
-}
-.container {
-  width: 960px;
-  margin: auto;
+  font-family: $ff1;
 }
 header,
 main,
 footer {
   margin: auto;
 }
+
+label[for="red"],
+label[for="black"],
+label[for="yellow"],
+label[for="white"],
+label[for="green"],
+label[for="pink"],
+label[for="orange"] {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin: 3px;
+  position: relative;
+  vertical-align: middle;
+  // border: 3px solid $white;
+  @include radius(50%);
+  cursor: pointer;
+}
+
+label[for="red"]:hover,
+label[for="black"]:hover,
+label[for="yellow"]:hover,
+label[for="white"]:hover,
+label[for="green"]:hover,
+label[for="pink"]:hover,
+label[for="orange"]:hover {
+  // border: 2px solid $red;
+  // box-sizing: border-box;
+  &::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    // display: inline-block;
+    position: absolute;
+    top: -22%;
+    left: -24%;
+    // margin: auto;
+    border: 2px solid $red;
+    @include radius(50%);
+  }
+}
+// label[for="yellow"]:hover::after {
+//   content: '';
+//     width: 21px;
+//     height: 21px;
+//     position: absolute;
+//     top: -22%;
+//     left: -22%;
+//     // margin: auto;
+//     border: 2px solid $red;
+//     @include radius(50%);
+// }
+
+.filters,
+footer {
+  height: 50px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 50px;
+  background-color: $sky;
+  border: 1px solid #e5f0fb;
+  @include radius(10px);
+}
+// *******************************
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.routes {
+  padding-top: 25px;
+  padding-bottom: 15px;
+  color: $grey;
+  a {
+    color: $grey;
+  }
+  .home {
+    &::after {
+      content: " ⎯ ";
+    }
+    a::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 17px;
+      margin-right: 7px;
+      background-image: url(../img/home.png);
+      background-repeat: no-repeat;
+    }
+  }
+  .catalog-goods {
+    &::after {
+      content: " ⎯ ";
+    }
+  }
+}
+
 .filters {
-    width: 100%;
-    border: 1px solid lightgray;
-    background-color: #eef8ff;
+  width: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  background-color: $sky;
+  &__colors {
+    width: 30%;
+    input {
+      display: none;
+    }
+    label[for="red"] {
+      background-color:$red;
+    }
+    label[for="black"] {
+      background-color: $lblack;
+    }
+    label[for="yellow"] {
+      background-color: $yellow;
+    }
+    label[for="white"] {
+      background-color: $white;
+    }
+    label[for="green"] {
+      background-color: $green;
+    }
+    label[for="pink"] {
+      background-color: $pink;
+    }
+    label[for="orange"] {
+      background-color: $orange;
+    }
+  }
+  &__colors::before {
+    content: "Цвет: ";
+    margin-right: 2%;
+  }
 }
 .goods {
-    width: 100%;
-    &__container {
-        width: (960 / 5) * 100%;
-    }
-    &__title {
-        font-size: (14 / 16) + rem;
-        color: #0093ca;
-        text-align: center;
-    }
-    &__description {
-        
-    }
-  #add {
-    font-family: $ff2;
-    font-size: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  &__container {
+    width: (960px / 5);
+    padding: 15px 35px 15px;
+    box-sizing: border-box;
+    @include radius(10px);
+    border: 1px solid $lgrey;
   }
-  #subtract {
-    font-family: $ff2;
-    font-size: 1rem;
+  &__title {
+    font-size: (14 / 16) + rem;
+    font-weight: normal;
+    color: #0093ca;
+    // text-align: center;
+  }
+  &__description {
+    font-size: (14 / 16) + rem;
+  }
+  &__buy {
+    width: 126px;
+    #count1,
+    #count2,
+    #count3,
+    #count4,
+    #count5,
+    #count6,
+    #count7 {
+      width: 60px;
+      height: 30px;
+      padding-left: 8px;
+      @include radius(20px);
+      border: none;
+      border: 1px solid grey;
+      box-sizing: border-box;
+    }
+    label[for="count1"],
+    label[for="count2"],
+    label[for="count3"],
+    label[for="count4"],
+    label[for="count5"],
+    label[for="count6"],
+    label[for="count7"] {
+      margin-left: -30px;
+      margin-right: 5px;
+      font-size: 0.75rem;
+    }
+    #pay1,
+    #pay2,
+    #pay3,
+    #pay4,
+    #pay5,
+    #pay6,
+    #pay7 {
+      border: none;
+      background: none;
+      display: none;
+    }
+    label[for="pay1"],
+    label[for="pay2"],
+    label[for="pay3"],
+    label[for="pay4"],
+    label[for="pay5"],
+    label[for="pay6"],
+    label[for="pay7"] {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      @include radius(50%);
+      background-color: red;
+      cursor: pointer;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-top: 12px;
+        background-image: url(../img/shoping.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    .add,
+    .subtract {
+      width: 10px;
+      display: block;
+      border: none;
+      background: none;
+      font-family: $ff2;
+      font-size: 1rem;
+      color: $grey;
+      cursor: pointer;
+    }
+  }
+}
+footer {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  .pages-number {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+  a {
+    color: #60666a;
+    text-decoration: underline;
   }
 }
