@@ -1,0 +1,111 @@
+@media screen and (max-width: 880px) {
+  .filters {
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 1.4%;
+    padding-bottom: 1.4%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    &__colors {
+      width: 30%;
+    }
+    &__baloons {
+      width: 35%;
+      height: 1.5rem;
+      align-self: center;
+      padding-right: 5%;
+      padding-left: 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      label[for="all-balloons"],
+      label[for="kit"],
+      label[for="on-one"] {
+        span {
+          width: 17px;
+          height: 17px;
+          margin-right: 5px;
+          margin-top: -4px;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+        }
+      }
+    }
+    &__price {
+      width: 24%;
+      text-align: right;
+      &-title {
+        display: inline-block;
+        line-height: 18px;
+        cursor: pointer;
+        &:hover {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .filters__baloons {
+      // width: 100%;
+      // padding: 7%;
+      // border: none;
+      font-size: 0.7rem;
+    }
+    .goods {
+      justify-content: center;
+    }
+}
+@media screen and (max-width: 480px) {
+
+}
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .filters {
+    margin-bottom: 15px;
+    padding: 10px;
+    flex-direction: column;
+    &__colors {
+      width: 74%;
+      justify-content: center;
+    }
+    &__baloons {
+      width: 100%;
+      padding: 7%;
+      border: none;
+      font-size: 0.7rem;
+    }
+    &__price {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .goods {
+    justify-content: center;
+    &__container {
+      width: 80%;
+      margin-top: 2%;
+    }
+    &__buy {
+      width: 75%;
+      margin: auto;
+    }
+  }
+  footer {
+    .pages-number {
+      width: 45%;
+      justify-content: space-around;
+    }
+  }
+}

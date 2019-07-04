@@ -1,36 +1,31 @@
 @charset "UTF-8";
 @font-face {
   font-family: "home";
-  src: url("../fonts/home.eot?92097462");
-  src: url("../fonts/home.eot?92097462#iefix") format("embedded-opentype"), url("../fonts/home.woff2?92097462") format("woff2"), url("../fonts/home.woff?92097462") format("woff"), url("../fonts/home.ttf?92097462") format("truetype"), url("../fonts/home.svg?92097462#home") format("svg");
+  src: url("../fonts/home.woff2?92097462") format("woff2"), url("../fonts/home.woff?92097462") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Jazz Ball";
-  src: url("../fonts/JazzBall.eot");
-  src: url("../fonts/JazzBall.eot?#iefix") format("embedded-opentype"), url("../fonts/JazzBall.woff2") format("woff2"), url("JazzBall.woff") format("woff");
+  src: url("../fonts/JazzBall.woff2") format("woff2"), url("JazzBall.woff") format("woff");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Bold.eot");
-  src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Bold.woff2") format("woff2"), url("../fonts/OpenSans-Bold.woff") format("woff");
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2"), url("../fonts/OpenSans-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-SemiBold.eot");
-  src: url("..fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"), url("..fonts/OpenSans-SemiBold.woff2") format("woff2"), url("..fonts/OpenSans-SemiBold.woff") format("woff");
+  src: url("..fonts/OpenSans-SemiBold.woff2") format("woff2"), url("..fonts/OpenSans-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal; }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Regular.eot");
-  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Regular.woff2") format("woff2"), url("../fonts/OpenSans-Regular.woff") format("woff");
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"), url("../fonts/OpenSans-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -46,6 +41,9 @@ main,
 footer {
   margin: auto; }
 
+a:hover {
+  text-decoration: none; }
+
 label[for="red"],
 label[for="black"],
 label[for="yellow"],
@@ -56,7 +54,7 @@ label[for="orange"] {
   display: inline-block;
   width: 17px;
   height: 17px;
-  margin: 3px;
+  margin: .8%;
   position: relative;
   vertical-align: middle;
   border-radius: 50%;
@@ -66,19 +64,13 @@ label[for="orange"] {
   -o-border-radius: 50%;
   cursor: pointer; }
 
-label[for="red"]:hover::after,
-label[for="black"]:hover::after,
-label[for="yellow"]:hover::after,
-label[for="white"]:hover::after,
-label[for="green"]:hover::after,
-label[for="pink"]:hover::after,
-label[for="orange"]:hover::after {
-  content: '';
-  width: 22px;
-  height: 22px;
+.filters__colors input[type="radio"]:checked + label::before {
+  content: "";
+  width: 21px;
+  height: 21px;
   position: absolute;
-  top: -22%;
-  left: -24%;
+  top: -23%;
+  left: -23%;
   border: 2px solid #e30013;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -88,14 +80,14 @@ label[for="orange"]:hover::after {
 
 .filters,
 footer {
-  height: 50px;
   padding-left: 1.5%;
   padding-right: 1.5%;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
           justify-content: space-between;
-  line-height: 50px;
+  -webkit-box-align: center;
+          align-items: center;
   background-color: #eef8ff;
   border: 1px solid #e5f0fb;
   border-radius: 10px;
@@ -111,6 +103,7 @@ footer {
 .routes {
   padding-top: 25px;
   padding-bottom: 15px;
+  font-size: 0.8125rem;
   color: #939ca2; }
   .routes a {
     color: #939ca2; }
@@ -122,6 +115,7 @@ footer {
     width: 16px;
     height: 17px;
     margin-right: 7px;
+    margin-bottom: -2px;
     background-image: url(../img/home.png);
     background-repeat: no-repeat; }
   .routes .catalog-goods::after {
@@ -131,12 +125,16 @@ footer {
   width: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-top: 1.4%;
+  padding-bottom: 1.4%;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
           justify-content: space-between;
   border: 1px solid lightgray;
-  background-color: #eef8ff; }
+  background-color: #eef8ff;
+  font-size: 0.875rem;
+  box-sizing: border-box; }
   .filters__colors {
     width: 30%; }
     .filters__colors input {
@@ -158,30 +156,130 @@ footer {
   .filters__colors::before {
     content: "Цвет: ";
     margin-right: 2%; }
+  .filters__baloons {
+    width: 35%;
+    height: 1.5rem;
+    align-self: center;
+    padding-right: 5%;
+    padding-left: 7%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
+    border-left: 1px solid #d1dce7;
+    border-right: 1px solid #d1dce7;
+    font-size: .875rem; }
+    .filters__baloons input {
+      display: none; }
+      .filters__baloons input:checked + label span {
+        background-color: #e30013; }
+    .filters__baloons input:checked + label span::after {
+      content: "\e802";
+      font-family: "home";
+      font-size: 0.75rem;
+      color: #ffffff;
+      color: #ffffff;
+      position: absolute;
+      top: 15%;
+      left: 15%; }
+    .filters__baloons label[for="all-balloons"] span,
+    .filters__baloons label[for="kit"] span,
+    .filters__baloons label[for="on-one"] span {
+      width: 17px;
+      height: 17px;
+      margin-right: 5px;
+      margin-top: -4px;
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      border: 1px solid #939ca2;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      background-color: #d1dce7;
+      cursor: pointer; }
+  .filters__price {
+    width: 24%;
+    text-align: right; }
+    .filters__price-title {
+      display: inline-block;
+      line-height: 18px;
+      border-bottom: 1px dotted #e30013;
+      color: #e30013;
+      cursor: pointer; }
+      .filters__price-title:hover {
+        border-bottom: none; }
+    .filters__price .arrow-1 {
+      color: #e30013; }
 
 .goods {
-  width: 100%;
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap; }
   .goods__container {
     width: 192px;
-    padding: 15px 35px 15px;
+    padding: 15px 30px 15px;
     box-sizing: border-box;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    border: 1px solid #d1dce7; }
+    border: 1px solid #d1dce7;
+    text-align: center;
+    box-sizing: border-box; }
+  .goods__img {
+    height: 130px; }
   .goods__title {
+    height: 35px;
+    margin-top: 5%;
     font-size: 0.875rem;
     font-weight: normal;
     color: #0093ca; }
   .goods__description {
-    font-size: 0.875rem; }
+    height: 60px;
+    margin-top: 5%;
+    font-size: 0.8125rem;
+    line-height: 1.3; }
+  .goods__price {
+    height: 55px; }
+    .goods__price p {
+      width: 100%; }
+    .goods__price .price {
+      display: inline-block;
+      font-weight: bold; }
+    .goods__price .sale {
+      width: 50px;
+      margin: auto;
+      position: relative;
+      color: #939ca2; }
+      .goods__price .sale:before {
+        content: "";
+        display: inline-block;
+        width: 45px;
+        height: 2px;
+        position: absolute;
+        margin: auto;
+        top: 40%;
+        left: 4%;
+        background-color: #e30013;
+        transform: rotate(-12deg);
+        -webkit-transform: rotate(-12deg);
+        -moz-transform: rotate(-12deg);
+        -ms-transform: rotate(-12deg);
+        -o-transform: rotate(-12deg); }
   .goods__buy {
-    width: 126px; }
+    width: 125px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center; }
     .goods__buy #count1,
     .goods__buy #count2,
     .goods__buy #count3,
@@ -192,6 +290,8 @@ footer {
       width: 60px;
       height: 30px;
       padding-left: 8px;
+      padding-right: 25px;
+      display: inline-block;
       border-radius: 20px;
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
@@ -199,7 +299,9 @@ footer {
       -o-border-radius: 20px;
       border: none;
       border: 1px solid grey;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      text-align: center;
+      overflow: hidden; }
     .goods__buy label[for="count1"],
     .goods__buy label[for="count2"],
     .goods__buy label[for="count3"],
@@ -208,7 +310,6 @@ footer {
     .goods__buy label[for="count6"],
     .goods__buy label[for="count7"] {
       margin-left: -30px;
-      margin-right: 5px;
       font-size: 0.75rem; }
     .goods__buy #pay1,
     .goods__buy #pay2,
@@ -253,20 +354,29 @@ footer {
         background-image: url(../img/shoping.svg);
         background-size: cover;
         background-repeat: no-repeat; }
-    .goods__buy .add,
-    .goods__buy .subtract {
+    .goods__buy .add-btn,
+    .goods__buy .subtract-btn {
       width: 10px;
-      display: block;
       border: none;
       background: none;
       font-family: "Jazz Ball";
       font-size: 1rem;
       color: #939ca2;
       cursor: pointer; }
+    .goods__buy .add-btn {
+      position: relative;
+      top: -5px;
+      left: 6px; }
+    .goods__buy .subtract-btn {
+      position: relative;
+      top: 10px;
+      left: -8px; }
 
 footer {
   margin-top: 20px;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%; }
   footer .pages-number {
     width: 20%;
     display: -webkit-box;
@@ -277,3 +387,5 @@ footer {
   footer a {
     color: #60666a;
     text-decoration: underline; }
+  footer .active {
+    font-weight: bold; }

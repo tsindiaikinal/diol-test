@@ -5,6 +5,13 @@
   -ms-border-radius: $radius;
   -o-border-radius: $radius;
 }
+@mixin transform($param) {
+  transform: $param;
+  -webkit-transform: $param;
+  -moz-transform: $param;
+  -ms-transform: $param;
+  -o-transform: $param;
+}
 // COLORS
 $white: #ffffff;
 $black: #000000;
@@ -22,32 +29,26 @@ $ffdef: Arial, Helvetica, sans-serif;
 $ff1: "Open Sans";
 $ff2: "Jazz Ball";
 //SIZES
+$fontdef: (14 / 16) + rem;
 
+// ***************************
 @font-face {
   font-family: "home";
-  src: url("../fonts/home.eot?92097462");
-  src: url("../fonts/home.eot?92097462#iefix") format("embedded-opentype"),
-    url("../fonts/home.woff2?92097462") format("woff2"),
-    url("../fonts/home.woff?92097462") format("woff"),
-    url("../fonts/home.ttf?92097462") format("truetype"),
-    url("../fonts/home.svg?92097462#home") format("svg");
+  src: url("../fonts/home.woff2?92097462") format("woff2"),
+    url("../fonts/home.woff?92097462") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Jazz Ball";
-  src: url("../fonts/JazzBall.eot");
-  src: url("../fonts/JazzBall.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/JazzBall.woff2") format("woff2"),
+  src: url("../fonts/JazzBall.woff2") format("woff2"),
     url("JazzBall.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Bold.eot");
-  src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/OpenSans-Bold.woff2") format("woff2"),
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2"),
     url("../fonts/OpenSans-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
@@ -55,9 +56,7 @@ $ff2: "Jazz Ball";
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-SemiBold.eot");
-  src: url("..fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
-    url("..fonts/OpenSans-SemiBold.woff2") format("woff2"),
+  src: url("..fonts/OpenSans-SemiBold.woff2") format("woff2"),
     url("..fonts/OpenSans-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
@@ -65,9 +64,7 @@ $ff2: "Jazz Ball";
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Regular.eot");
-  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"),
     url("../fonts/OpenSans-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -85,6 +82,10 @@ footer {
   margin: auto;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 label[for="red"],
 label[for="black"],
 label[for="yellow"],
@@ -95,56 +96,32 @@ label[for="orange"] {
   display: inline-block;
   width: 17px;
   height: 17px;
-  margin: 3px;
+  margin: .8%;
   position: relative;
   vertical-align: middle;
-  // border: 3px solid $white;
   @include radius(50%);
   cursor: pointer;
 }
-
-label[for="red"]:hover,
-label[for="black"]:hover,
-label[for="yellow"]:hover,
-label[for="white"]:hover,
-label[for="green"]:hover,
-label[for="pink"]:hover,
-label[for="orange"]:hover {
-  // border: 2px solid $red;
-  // box-sizing: border-box;
-  &::after {
-    content: '';
-    width: 22px;
-    height: 22px;
-    // display: inline-block;
+.filters__colors {
+  input[type="radio"]:checked + label::before {
+    content: "";
+    width: 21px;
+    height: 21px;
     position: absolute;
-    top: -22%;
-    left: -24%;
-    // margin: auto;
+    top: -23%;
+    left: -23%;
     border: 2px solid $red;
     @include radius(50%);
   }
 }
-// label[for="yellow"]:hover::after {
-//   content: '';
-//     width: 21px;
-//     height: 21px;
-//     position: absolute;
-//     top: -22%;
-//     left: -22%;
-//     // margin: auto;
-//     border: 2px solid $red;
-//     @include radius(50%);
-// }
 
 .filters,
 footer {
-  height: 50px;
   padding-left: 1.5%;
   padding-right: 1.5%;
   display: flex;
   justify-content: space-between;
-  line-height: 50px;
+  align-items: center;
   background-color: $sky;
   border: 1px solid #e5f0fb;
   @include radius(10px);
@@ -158,6 +135,7 @@ footer {
 .routes {
   padding-top: 25px;
   padding-bottom: 15px;
+  font-size: (13 / 16) + rem;
   color: $grey;
   a {
     color: $grey;
@@ -172,6 +150,7 @@ footer {
       width: 16px;
       height: 17px;
       margin-right: 7px;
+      margin-bottom: -2px;
       background-image: url(../img/home.png);
       background-repeat: no-repeat;
     }
@@ -187,17 +166,21 @@ footer {
   width: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-top: 1.4%;
+  padding-bottom: 1.4%;
   display: flex;
   justify-content: space-between;
   border: 1px solid lightgray;
   background-color: $sky;
+  font-size: $fontdef;
+  box-sizing: border-box;
   &__colors {
     width: 30%;
     input {
       display: none;
     }
     label[for="red"] {
-      background-color:$red;
+      background-color: $red;
     }
     label[for="black"] {
       background-color: $lblack;
@@ -222,29 +205,131 @@ footer {
     content: "Цвет: ";
     margin-right: 2%;
   }
+  &__baloons {
+    width: 35%;
+    height: 1.5rem;
+    align-self: center;
+    padding-right: 5%;
+    padding-left: 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 1px solid $lgrey;
+    border-right: 1px solid $lgrey;
+    font-size: .875rem;
+    input {
+      display: none;
+      &:checked + label span {
+        background-color: $red;
+      }
+    }
+    input:checked + label span::after {
+      content: "\e802";
+      font-family: "home";
+      font-size: 0.75rem;
+      color: $white;
+      color: $white;
+      position: absolute;
+      top: 15%;
+      left: 15%;
+    }
+    label[for="all-balloons"],
+    label[for="kit"],
+    label[for="on-one"] {
+      span {
+        width: 17px;
+        height: 17px;
+        margin-right: 5px;
+        margin-top: -4px;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        border: 1px solid $grey;
+        @include radius(5px);
+        background-color: $lgrey;
+        cursor: pointer;
+      }
+    }
+  }
+  &__price {
+    width: 24%;
+    text-align: right;
+    &-title {
+      display: inline-block;
+      line-height: 18px;
+      border-bottom: 1px dotted $red;
+      color: $red;
+      cursor: pointer;
+      &:hover {
+        border-bottom: none;
+      }
+    }
+    .arrow-1 {
+      color: $red;
+    }
+  }
 }
 .goods {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   &__container {
     width: (960px / 5);
-    padding: 15px 35px 15px;
+    padding: 15px 30px 15px;
     box-sizing: border-box;
     @include radius(10px);
     border: 1px solid $lgrey;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  &__img {
+    height: 130px;
   }
   &__title {
-    font-size: (14 / 16) + rem;
+    height: 35px;
+    margin-top: 5%;
+    font-size: $fontdef;
     font-weight: normal;
     color: #0093ca;
-    // text-align: center;
   }
   &__description {
-    font-size: (14 / 16) + rem;
+    height: 60px;
+    margin-top: 5%;
+    font-size: (13 / 16) + rem;
+    line-height: 1.3;
+  }
+  &__price {
+    height: 55px;
+    p {
+      width: 100%;
+    }
+    .price {
+      display: inline-block;
+      font-weight: bold;
+    }
+    .sale {
+      width: 50px;
+      margin: auto;
+      position: relative;
+      color: $grey;
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 45px;
+        height: 2px;
+        position: absolute;
+        margin: auto;
+        top: 40%;
+        left: 4%;
+        background-color: $red;
+        @include transform(rotate(-12deg));
+      }
+    }
   }
   &__buy {
-    width: 126px;
+    width: 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     #count1,
     #count2,
     #count3,
@@ -255,10 +340,14 @@ footer {
       width: 60px;
       height: 30px;
       padding-left: 8px;
+      padding-right: 25px;
+      display: inline-block;
       @include radius(20px);
       border: none;
       border: 1px solid grey;
       box-sizing: border-box;
+      text-align: center;
+      overflow: hidden;
     }
     label[for="count1"],
     label[for="count2"],
@@ -268,7 +357,6 @@ footer {
     label[for="count6"],
     label[for="count7"] {
       margin-left: -30px;
-      margin-right: 5px;
       font-size: 0.75rem;
     }
     #pay1,
@@ -307,10 +395,9 @@ footer {
         background-repeat: no-repeat;
       }
     }
-    .add,
-    .subtract {
+    .add-btn,
+    .subtract-btn {
       width: 10px;
-      display: block;
       border: none;
       background: none;
       font-family: $ff2;
@@ -318,11 +405,23 @@ footer {
       color: $grey;
       cursor: pointer;
     }
+    .add-btn {
+      position: relative;
+      top: -5px;
+      left: 6px;
+    }
+    .subtract-btn {
+      position: relative;
+      top: 10px;
+      left: -8px;
+    }
   }
 }
 footer {
   margin-top: 20px;
   margin-bottom: 25px;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
   .pages-number {
     width: 20%;
     display: flex;
@@ -333,4 +432,8 @@ footer {
     color: #60666a;
     text-decoration: underline;
   }
+  .active {
+    font-weight: bold;
+  }
 }
+

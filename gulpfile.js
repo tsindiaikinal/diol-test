@@ -88,7 +88,7 @@ const copy = () => {
 };
 
 const imageMin = () => {
-  return src("src/img/*.+(jpg|jpeg|png)")
+  return src("src/img/*.+(jpg|jpeg|png|svg)")
     .pipe(imagemin())
     .pipe(
       imagemin([

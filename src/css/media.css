@@ -1,0 +1,91 @@
+@media screen and (max-width: 880px) {
+  .filters {
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 1.4%;
+    padding-bottom: 1.4%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    font-size: 0.7rem; }
+    .filters__colors {
+      width: 30%; }
+    .filters__baloons {
+      width: 35%;
+      height: 1.5rem;
+      align-self: center;
+      padding-right: 5%;
+      padding-left: 7%;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+              align-items: center;
+      font-size: 0.7rem; }
+      .filters__baloons label[for="all-balloons"] span,
+      .filters__baloons label[for="kit"] span,
+      .filters__baloons label[for="on-one"] span {
+        width: 17px;
+        height: 17px;
+        margin-right: 5px;
+        margin-top: -4px;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle; }
+    .filters__price {
+      width: 24%;
+      text-align: right; }
+      .filters__price-title {
+        display: inline-block;
+        line-height: 18px;
+        cursor: pointer; }
+        .filters__price-title:hover {
+          border-bottom: none; } }
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .filters__baloons {
+    font-size: 0.7rem; }
+  .goods {
+    -webkit-box-pack: center;
+            justify-content: center; } }
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.7rem;
+    text-align: center; }
+  .filters {
+    margin-bottom: 15px;
+    padding: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column; }
+    .filters__colors {
+      width: 74%;
+      -webkit-box-pack: center;
+              justify-content: center; }
+    .filters__baloons {
+      width: 100%;
+      padding: 7%;
+      border: none;
+      font-size: 0.7rem; }
+    .filters__price {
+      width: 100%;
+      text-align: center; }
+  .goods {
+    -webkit-box-pack: center;
+            justify-content: center; }
+    .goods__container {
+      width: 80%;
+      margin-top: 2%; }
+    .goods__buy {
+      width: 75%;
+      margin: auto; }
+  footer .pages-number {
+    width: 45%;
+    justify-content: space-around; } }
