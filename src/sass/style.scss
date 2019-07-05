@@ -1,16 +1,18 @@
 @mixin radius($radius) {
   border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  -o-border-radius: $radius;
+  // -webkit-border-radius: $radius;
+  // -moz-border-radius: $radius;
+  // -ms-border-radius: $radius;
+  // -o-border-radius: $radius;
+  // W3C SHOWS - WARNING: "is an unknown vendor extension"
 }
 @mixin transform($param) {
   transform: $param;
-  -webkit-transform: $param;
-  -moz-transform: $param;
-  -ms-transform: $param;
-  -o-transform: $param;
+  // -webkit-transform: $param;
+  // -moz-transform: $param;
+  // -ms-transform: $param;
+  // -o-transform: $param;
+  // W3C SHOWS - WARNING: "is an unknown vendor extension"
 }
 // COLORS
 $white: #ffffff;
@@ -85,36 +87,6 @@ footer {
 a:hover {
   text-decoration: none;
 }
-
-label[for="red"],
-label[for="black"],
-label[for="yellow"],
-label[for="white"],
-label[for="green"],
-label[for="pink"],
-label[for="orange"] {
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  margin: .8%;
-  position: relative;
-  vertical-align: middle;
-  @include radius(50%);
-  cursor: pointer;
-}
-.filters__colors {
-  input[type="radio"]:checked + label::before {
-    content: "";
-    width: 21px;
-    height: 21px;
-    position: absolute;
-    top: -23%;
-    left: -23%;
-    border: 2px solid $red;
-    @include radius(50%);
-  }
-}
-
 .filters,
 footer {
   padding-left: 1.5%;
@@ -176,8 +148,25 @@ footer {
   box-sizing: border-box;
   &__colors {
     width: 30%;
+    margin-left: -15px;
     input {
       display: none;
+    }
+    label[for="red"],
+    label[for="black"],
+    label[for="yellow"],
+    label[for="white"],
+    label[for="green"],
+    label[for="pink"],
+    label[for="orange"] {
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      margin: 0.8%;
+      position: relative;
+      vertical-align: middle;
+      @include radius(50%);
+      cursor: pointer;
     }
     label[for="red"] {
       background-color: $red;
@@ -200,23 +189,40 @@ footer {
     label[for="orange"] {
       background-color: $orange;
     }
-  }
-  &__colors::before {
-    content: "Цвет: ";
-    margin-right: 2%;
+    input[type="radio"]:checked + label::before {
+      content: "";
+      width: 21px;
+      height: 21px;
+      position: absolute;
+      top: -23%;
+      left: -23%;
+      border: 2px solid $red;
+      @include radius(50%);
+    }
   }
   &__baloons {
     width: 35%;
     height: 1.5rem;
     align-self: center;
-    padding-right: 5%;
-    padding-left: 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 1px solid $lgrey;
-    border-right: 1px solid $lgrey;
-    font-size: .875rem;
+    position: relative;
+    &::after,
+    &::before {
+      content: '';
+      width: 1px;
+      height: 23px;
+      position: absolute;
+      background-color: $lgrey;
+    }
+    &::before {
+      left: -18%;
+    }
+    &::after {
+      right: -12%;
+    }
+    font-size: 0.875rem;
     input {
       display: none;
       &:checked + label span {
@@ -236,6 +242,7 @@ footer {
     label[for="all-balloons"],
     label[for="kit"],
     label[for="on-one"] {
+      position: relative;
       span {
         width: 17px;
         height: 17px;
@@ -436,4 +443,3 @@ footer {
     font-weight: bold;
   }
 }
-

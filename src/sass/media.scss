@@ -1,52 +1,6 @@
 @media screen and (max-width: 880px) {
-  .filters {
-    width: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 1.4%;
-    padding-bottom: 1.4%;
-    display: flex;
-    justify-content: space-between;
+  .filters__baloons {
     font-size: 0.7rem;
-    &__colors {
-      width: 30%;
-    }
-    &__baloons {
-      width: 35%;
-      height: 1.5rem;
-      align-self: center;
-      padding-right: 5%;
-      padding-left: 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.7rem;
-      label[for="all-balloons"],
-      label[for="kit"],
-      label[for="on-one"] {
-        span {
-          width: 17px;
-          height: 17px;
-          margin-right: 5px;
-          margin-top: -4px;
-          display: inline-block;
-          position: relative;
-          vertical-align: middle;
-        }
-      }
-    }
-    &__price {
-      width: 24%;
-      text-align: right;
-      &-title {
-        display: inline-block;
-        line-height: 18px;
-        cursor: pointer;
-        &:hover {
-          border-bottom: none;
-        }
-      }
-    }
   }
 }
 @media screen and (max-width: 768px) {
@@ -54,20 +8,121 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-  .filters__baloons {
-      // width: 100%;
-      // padding: 7%;
-      // border: none;
+  .filters {
+    padding-bottom: 4%;
+    font-size: 0.7rem;
+    &__colors {
+      width: 35%;
+    }
+    &__baloons {
+      width: 30%;
+      padding-top: 1.2%;
+      flex-wrap: wrap;
+      align-items: flex-start;
       font-size: 0.7rem;
+      &::after,
+      &::before {
+        content: "";
+        top: 7%;
+        width: 1px;
+        height: 45px;
+      }
+      label[for="all-balloons"],
+      label[for="kit"],
+      label[for="on-one"] {
+        margin-bottom: 6px;
+        span {
+          margin-bottom: 0;
+        }
+      }
     }
-    .goods {
-      justify-content: center;
-    }
+  }
+  .goods {
+    justify-content: center;
+  }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 590px) {
+  .filters {
+    padding-bottom: 6%;
+    font-size: 0.875rem;
+    &__colors {
+      width: 23%;
+      display: flex;
+      flex-wrap: wrap;
+      // align-items: baseline;
+      label[for="red"],
+      label[for="black"],
+      label[for="yellow"],
+      label[for="white"],
+      label[for="green"],
+      label[for="pink"],
+      label[for="orange"] {
+        margin: 5%;
+      }
+    }
+    &__baloons {
+      margin-top: -4%;
+      padding-top: 0;
+      font-size: 0.875rem;
+      label[for="all-balloons"],
+      label[for="kit"],
+      label[for="on-one"] {
+        margin-bottom: 4px;
+      }
+      &::after,
+      &::before {
+        top: 0%;
+        width: 1px;
+        height: 70px;
+      }
+      &::before {
+        left: -25%;
+      }
+      &::after {
+        right: 5%;
+      }
+    }
+    &__price {
+      font-size: 0.875rem;
+      text-align: center;
+    }
+  }
+}
 
+@media screen and (max-width: 480px) {
+  .filters {
+    font-size: 0.75rem;
+    &__colors {
+      width: 33%;
+      margin-top: 3%;
+      &-title {
+        padding-top: 2.5%;
+      }
+    }
+    &__baloons {
+      font-size: 0.75rem;
+      &::after,
+      &::before {
+        content: "";
+        top: 0%;
+        width: 1px;
+        height: 70px;
+      }
+      &::before {
+        left: -25%;
+      }
+      &::after {
+        right: 5%;
+      }
+    }
+    &__price {
+      font-size: 0.75rem;
+      text-align: center;
+    }
+  }
 }
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 390px) {
   h1 {
     font-size: 1.7rem;
     text-align: center;
@@ -79,12 +134,29 @@
     &__colors {
       width: 74%;
       justify-content: center;
+      margin-top: 0;
+      label[for="red"],
+      label[for="black"],
+      label[for="yellow"],
+      label[for="white"],
+      label[for="green"],
+      label[for="pink"],
+      label[for="orange"] {
+        margin: 2%;
+      }
     }
     &__baloons {
       width: 100%;
-      padding: 7%;
+      padding-top: 9%;
+      padding-bottom: 3%;
       border: none;
       font-size: 0.7rem;
+      &::after,
+      &::before {
+        top: 0%;
+        width: 0;
+        height: 0;
+      }
     }
     &__price {
       width: 100%;
@@ -98,7 +170,6 @@
       margin-top: 2%;
     }
     &__buy {
-      width: 75%;
       margin: auto;
     }
   }

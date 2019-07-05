@@ -1,4 +1,3 @@
-
 (function() {
   //PRIVATE VERIBLES
   let goods = document.getElementById("goods");
