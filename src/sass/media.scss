@@ -4,28 +4,33 @@
   }
 }
 @media screen and (max-width: 768px) {
+
   .container {
-    padding-left: 10px;
     padding-right: 10px;
+    padding-left: 10px;
   }
+
   .filters {
-    padding-bottom: 4%;
     font-size: 0.7rem;
+    padding-bottom: 4%;
     &__colors {
       width: 35%;
     }
     &__baloons {
+      font-size: 0.7rem;
       width: 30%;
       padding-top: 1.2%;
       flex-wrap: wrap;
-      align-items: flex-start;
-      font-size: 0.7rem;
+      justify-content: flex-start;
       &::after,
       &::before {
-        content: "";
         top: 7%;
         width: 1px;
         height: 45px;
+        content: "";
+      }
+      label[for="all-balloons"] {
+        margin-right: 15%;
       }
       label[for="all-balloons"],
       label[for="kit"],
@@ -36,20 +41,26 @@
         }
       }
     }
+    &__price {
+      &-title {
+        height: 15px;
+      }
+    }
   }
   .goods {
     justify-content: center;
   }
 }
-@media screen and (max-width: 590px) {
+
+@media screen and (max-width: 600px) {
+
   .filters {
-    padding-bottom: 6%;
     font-size: 0.875rem;
+    padding-bottom: 6%;
     &__colors {
-      width: 23%;
       display: flex;
+      width: 23%;
       flex-wrap: wrap;
-      // align-items: baseline;
       label[for="red"],
       label[for="black"],
       label[for="yellow"],
@@ -61,9 +72,12 @@
       }
     }
     &__baloons {
+      font-size: 0.875rem;
       margin-top: -4%;
       padding-top: 0;
-      font-size: 0.875rem;
+      label[for="all-balloons"] {
+        margin-right: 0;
+      }
       label[for="all-balloons"],
       label[for="kit"],
       label[for="on-one"] {
@@ -71,7 +85,7 @@
       }
       &::after,
       &::before {
-        top: 0%;
+        top: 0;
         width: 1px;
         height: 70px;
       }
@@ -90,6 +104,7 @@
 }
 
 @media screen and (max-width: 480px) {
+
   .filters {
     font-size: 0.75rem;
     &__colors {
@@ -103,10 +118,10 @@
       font-size: 0.75rem;
       &::after,
       &::before {
-        content: "";
-        top: 0%;
+        top: 0;
         width: 1px;
         height: 70px;
+        content: "";
       }
       &::before {
         left: -25%;
@@ -123,18 +138,19 @@
 }
 
 @media screen and (max-width: 390px) {
+
   h1 {
     font-size: 1.7rem;
     text-align: center;
   }
   .filters {
+    flex-direction: column;
     margin-bottom: 15px;
     padding: 10px;
-    flex-direction: column;
     &__colors {
       width: 74%;
-      justify-content: center;
       margin-top: 0;
+      justify-content: center;
       label[for="red"],
       label[for="black"],
       label[for="yellow"],
@@ -146,14 +162,15 @@
       }
     }
     &__baloons {
+      font-size: 0.7rem;
       width: 100%;
       padding-top: 9%;
       padding-bottom: 3%;
       border: none;
-      font-size: 0.7rem;
+      justify-content: space-around;
       &::after,
       &::before {
-        top: 0%;
+        top: 0;
         width: 0;
         height: 0;
       }
@@ -163,6 +180,7 @@
       text-align: center;
     }
   }
+
   .goods {
     justify-content: center;
     &__container {
@@ -173,7 +191,9 @@
       margin: auto;
     }
   }
+
   footer {
+    font-size: 0.875rem;
     .pages-number {
       width: 45%;
       justify-content: space-around;

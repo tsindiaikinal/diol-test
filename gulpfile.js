@@ -71,8 +71,12 @@ const sassExt = () => {
 
 const cssminim = () => {
   return (
-    src("src/**/*.css")
-      // src(["src/css/style.css", "src/css/fontface.css"])
+    //src("src/**/*.css")
+      src([
+      "src/css/fontface.css", 
+      "src/css/style.css",
+      "src/css/media.css"
+      ])
       .pipe(csso())
       .pipe(concat("style.css"))
       .pipe(dest("dist/css/"))

@@ -15,8 +15,8 @@
   // W3C SHOWS - WARNING: "is an unknown vendor extension"
 }
 // COLORS
-$white: #ffffff;
-$black: #000000;
+$white: #fff;
+$black: #000;
 $grey: #939ca2;
 $lgrey: #d1dce7;
 $sky: #eef8ff;
@@ -34,43 +34,6 @@ $ff2: "Jazz Ball";
 $fontdef: (14 / 16) + rem;
 
 // ***************************
-@font-face {
-  font-family: "home";
-  src: url("../fonts/home.woff2?92097462") format("woff2"),
-    url("../fonts/home.woff?92097462") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Jazz Ball";
-  src: url("../fonts/JazzBall.woff2") format("woff2"),
-    url("JazzBall.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Bold.woff2") format("woff2"),
-    url("../fonts/OpenSans-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("..fonts/OpenSans-SemiBold.woff2") format("woff2"),
-    url("..fonts/OpenSans-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"),
-    url("../fonts/OpenSans-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 * {
   margin: 0;
   padding: 0;
@@ -78,6 +41,7 @@ $fontdef: (14 / 16) + rem;
 body {
   font-family: $ff1;
 }
+
 header,
 main,
 footer {
@@ -87,27 +51,29 @@ footer {
 a:hover {
   text-decoration: none;
 }
+
 .filters,
 footer {
-  padding-left: 1.5%;
-  padding-right: 1.5%;
   display: flex;
+  padding-right: 1.5%;
+  padding-left: 1.5%;
+  border: 1px solid #e5f0fb;
+  background-color: $sky;
   justify-content: space-between;
   align-items: center;
-  background-color: $sky;
-  border: 1px solid #e5f0fb;
   @include radius(10px);
 }
 // *******************************
+
 .container {
   max-width: 960px;
   margin: auto;
 }
 
 .routes {
+  font-size: (13 / 16) + rem;
   padding-top: 25px;
   padding-bottom: 15px;
-  font-size: (13 / 16) + rem;
   color: $grey;
   a {
     color: $grey;
@@ -117,12 +83,12 @@ footer {
       content: " ⎯ ";
     }
     a::before {
-      content: "";
       display: inline-block;
       width: 16px;
       height: 17px;
       margin-right: 7px;
       margin-bottom: -2px;
+      content: "";
       background-image: url(../img/home.png);
       background-repeat: no-repeat;
     }
@@ -135,17 +101,17 @@ footer {
 }
 
 .filters {
+  font-size: $fontdef;
+  display: flex;
+  box-sizing: border-box;
   width: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 1.4%;
   padding-bottom: 1.4%;
-  display: flex;
-  justify-content: space-between;
   border: 1px solid lightgray;
   background-color: $sky;
-  font-size: $fontdef;
-  box-sizing: border-box;
+  justify-content: space-between;
   &__colors {
     width: 30%;
     margin-left: -15px;
@@ -159,14 +125,14 @@ footer {
     label[for="green"],
     label[for="pink"],
     label[for="orange"] {
+      position: relative;
       display: inline-block;
       width: 17px;
       height: 17px;
       margin: 0.8%;
-      position: relative;
+      cursor: pointer;
       vertical-align: middle;
       @include radius(50%);
-      cursor: pointer;
     }
     label[for="red"] {
       background-color: $red;
@@ -190,30 +156,30 @@ footer {
       background-color: $orange;
     }
     input[type="radio"]:checked + label::before {
-      content: "";
-      width: 21px;
-      height: 21px;
       position: absolute;
       top: -23%;
       left: -23%;
+      width: 21px;
+      height: 21px;
+      content: "";
       border: 2px solid $red;
       @include radius(50%);
     }
   }
   &__baloons {
+    font-size: 0.875rem;
+    position: relative;
+    display: flex;
     width: 35%;
     height: 1.5rem;
     align-self: center;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: relative;
     &::after,
     &::before {
-      content: '';
+      position: absolute;
       width: 1px;
       height: 23px;
-      position: absolute;
+      content: "";
       background-color: $lgrey;
     }
     &::before {
@@ -222,7 +188,6 @@ footer {
     &::after {
       right: -12%;
     }
-    font-size: 0.875rem;
     input {
       display: none;
       &:checked + label span {
@@ -230,31 +195,31 @@ footer {
       }
     }
     input:checked + label span::after {
-      content: "\e802";
       font-family: "home";
       font-size: 0.75rem;
-      color: $white;
-      color: $white;
       position: absolute;
       top: 15%;
       left: 15%;
+      content: "\e802";
+      color: $white;
+      color: $white;
     }
     label[for="all-balloons"],
     label[for="kit"],
     label[for="on-one"] {
       position: relative;
       span {
+        position: relative;
+        display: inline-block;
         width: 17px;
         height: 17px;
-        margin-right: 5px;
         margin-top: -4px;
-        display: inline-block;
-        position: relative;
+        margin-right: 5px;
+        cursor: pointer;
         vertical-align: middle;
         border: 1px solid $grey;
-        @include radius(5px);
         background-color: $lgrey;
-        cursor: pointer;
+        @include radius(5px);
       }
     }
   }
@@ -263,10 +228,10 @@ footer {
     text-align: right;
     &-title {
       display: inline-block;
-      line-height: 18px;
-      border-bottom: 1px dotted $red;
-      color: $red;
+      height: 18px;
       cursor: pointer;
+      color: $red;
+      border-bottom: 1px dotted $red;
       &:hover {
         border-bottom: none;
       }
@@ -276,33 +241,34 @@ footer {
     }
   }
 }
+
 .goods {
   display: flex;
   flex-wrap: wrap;
   &__container {
+    box-sizing: border-box;
+    box-sizing: border-box;
     width: (960px / 5);
     padding: 15px 30px 15px;
-    box-sizing: border-box;
-    @include radius(10px);
-    border: 1px solid $lgrey;
     text-align: center;
-    box-sizing: border-box;
+    border: 1px solid $lgrey;
+    @include radius(10px);
   }
   &__img {
     height: 130px;
   }
   &__title {
-    height: 35px;
-    margin-top: 5%;
     font-size: $fontdef;
     font-weight: normal;
+    height: 35px;
+    margin-top: 5%;
     color: #0093ca;
   }
   &__description {
-    height: 60px;
-    margin-top: 5%;
     font-size: (13 / 16) + rem;
     line-height: 1.3;
+    height: 60px;
+    margin-top: 5%;
   }
   &__price {
     height: 55px;
@@ -310,31 +276,31 @@ footer {
       width: 100%;
     }
     .price {
-      display: inline-block;
       font-weight: bold;
+      display: inline-block;
     }
     .sale {
+      position: relative;
       width: 50px;
       margin: auto;
-      position: relative;
       color: $grey;
       &:before {
-        content: "";
+        position: absolute;
+        top: 40%;
+        left: 4%;
         display: inline-block;
         width: 45px;
         height: 2px;
-        position: absolute;
         margin: auto;
-        top: 40%;
-        left: 4%;
+        content: "";
         background-color: $red;
         @include transform(rotate(-12deg));
       }
     }
   }
   &__buy {
-    width: 125px;
     display: flex;
+    width: 125px;
     justify-content: space-between;
     align-items: center;
     #count1,
@@ -344,17 +310,17 @@ footer {
     #count5,
     #count6,
     #count7 {
+      display: inline-block;
+      overflow: hidden;
+      box-sizing: border-box;
       width: 60px;
       height: 30px;
-      padding-left: 8px;
       padding-right: 25px;
-      display: inline-block;
-      @include radius(20px);
+      padding-left: 8px;
+      text-align: center;
       border: none;
       border: 1px solid grey;
-      box-sizing: border-box;
-      text-align: center;
-      overflow: hidden;
+      @include radius(20px);
     }
     label[for="count1"],
     label[for="count2"],
@@ -363,8 +329,8 @@ footer {
     label[for="count5"],
     label[for="count6"],
     label[for="count7"] {
-      margin-left: -30px;
       font-size: 0.75rem;
+      margin-left: -30px;
     }
     #pay1,
     #pay2,
@@ -373,9 +339,9 @@ footer {
     #pay5,
     #pay6,
     #pay7 {
+      display: none;
       border: none;
       background: none;
-      display: none;
     }
     label[for="pay1"],
     label[for="pay2"],
@@ -387,30 +353,30 @@ footer {
       display: inline-block;
       width: 40px;
       height: 40px;
-      text-align: center;
-      @include radius(50%);
-      background-color: red;
       cursor: pointer;
+      text-align: center;
+      background-color: red;
+      @include radius(50%);
       &::after {
-        content: "";
         display: inline-block;
         width: 20px;
         height: 20px;
         margin-top: 12px;
+        content: "";
         background-image: url(../img/shoping.svg);
-        background-size: cover;
         background-repeat: no-repeat;
+        background-size: cover;
       }
     }
     .add-btn,
     .subtract-btn {
-      width: 10px;
-      border: none;
-      background: none;
       font-family: $ff2;
       font-size: 1rem;
-      color: $grey;
+      width: 10px;
       cursor: pointer;
+      color: $grey;
+      border: none;
+      background: none;
     }
     .add-btn {
       position: relative;
@@ -424,20 +390,30 @@ footer {
     }
   }
 }
+
 footer {
   margin-top: 20px;
   margin-bottom: 25px;
   padding-top: 1.5%;
   padding-bottom: 1.5%;
-  .pages-number {
-    width: 20%;
+  .pagination-wrapper {
+    width: 145px;
+  }
+  .pagination {
     display: flex;
-    justify-content: space-between;
-    list-style: none;
+    width: 0;
+    &__item {
+      list-style: none;
+    }
+    &__link,
+    &__dots-link {
+      padding-right: 7px;
+      padding-right: 7px;
+    }
   }
   a {
-    color: #60666a;
     text-decoration: underline;
+    color: #60666a;
   }
   .active {
     font-weight: bold;

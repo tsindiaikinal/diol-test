@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "home";
+  font-weight: normal;
+  font-style: normal;
+
+  src: url("../fonts/home.woff2?92097462") format("woff2"),
+    url("../fonts/home.woff?92097462") format("woff");
+}
+@font-face {
+  font-family: "Jazz Ball";
+  font-weight: bold;
+  font-style: normal;
+
+  src: url("../fonts/JazzBall.woff2") format("woff2"),
+    url("JazzBall.woff") format("woff");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-style: normal;
+
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2"),
+    url("../fonts/OpenSans-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+
+  src: url("..fonts/OpenSans-SemiBold.woff2") format("woff2"),
+    url("..fonts/OpenSans-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: normal;
+  font-style: normal;
+
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans-Regular.woff") format("woff");
+}

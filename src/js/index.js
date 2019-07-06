@@ -1,7 +1,7 @@
 (function() {
   //PRIVATE VERIBLES
   let goods = document.getElementById("goods");
-  let pagination = document.querySelector(".pages-number");
+  let pagination = document.querySelector(".pagination");
   let paginationLink = document.querySelectorAll(".pagination__link");
   // *****************************************************
   goods.addEventListener("click", function(event) {
@@ -32,11 +32,12 @@
     }
   });
   pagination.addEventListener("click", function(event) {
-    paginationLink.forEach(links => {
-      if (links.classList.contains("active")) {
-        links.classList.remove("active");
+    console.log(event);
+    for (let i = 0; i < paginationLink.length; i++) {
+      if (paginationLink[i].classList.contains("active")) {
+        paginationLink[i].classList.remove("active");
       }
-    });
+    }
     event.target.classList.add("active");
   });
 })();
